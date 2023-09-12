@@ -1,62 +1,50 @@
-import React, { useRef, useEffect, useState, useCallback } from "react";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader";
+import React, { useRef, useEffect } from "react";
 import styles from "./styles.module.scss";
+import * as THREE from "three";
 
-export default function WebgiViewer() {
+export default function ThreeJsViewer() {
     const canvasRef = useRef(null);
-    const [webgi, setWebgi] = useState(null);
-
-    const setupViewer = useCallback(async () => {
-        if (!webgi) return;
-        const viewer = new webgi.ViewerApp({
-            canvas: canvasRef.current,
-        });
-
-        const camera = viewer.scene.activeCamera;
-        const position = camera.position;
-        const target = camera.target;
-
-        await viewer.addPlugin(webgi.GBufferPlugin)
-        await viewer.addPlugin(new webgi.ProgressivePlugin(32))
-        await viewer.addPlugin(new webgi.TonemapPlugin(true))
-        await viewer.addPlugin(webgi.GammaCorrectionPlugin)
-        await viewer.addPlugin(webgi.SSRPlugin)
-        await viewer.addPlugin(webgi.SSAOPlugin)
-        await viewer.addPlugin(webgi.BloomPlugin)
-
-        viewer.renderer.refreshPipeline();
-
-        await viewer.load("/phone.glb");
-
-        viewer.getPlugin(webgi.TonemapPlugin).config.clipBackground = true;
-
-        viewer.scene.activeCamera.setCameraOptions({ controlsEnabled: true });
-
-        window.scrollTo(0, 0);
-
-        let needsUpdate = true;
-
-        viewer.addEventListener("preFrame", () => {
-            if (needsUpdate) {
-                camera.positionTargetUpdated(true);
-                needsUpdate = false;
-            }
-        });
-    }, [webgi]);
 
     useEffect(() => {
-        const { ViewerApp, AssetManagerPlugin, TonemapPlugin, GBufferPlugin, ProgressivePlugin, GammaCorrectionPlugin, SSRPlugin, SSAOPlugin, BloomPlugin } = require("webgi");
-        setWebgi({ ViewerApp, AssetManagerPlugin, TonemapPlugin, GBufferPlugin, ProgressivePlugin, GammaCorrectionPlugin, SSRPlugin, SSAOPlugin, BloomPlugin });
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        const controls = new OrbitControls(camera, renderer.domElement);
+
+        const light = new THREE.DirectionalLight(0x006994, 1);
+        light.position.set(1, 1, 1).normalize();
+        scene.add(light);
+
+        const loader = new GLTFLoader();
+        loader.load("/models/whale.glb", (gltf) => {
+            const model = gltf.scene;
+            scene.add(model);
+        });
+
+        camera.position.set(10, 0, -10);
+
+        const animate = () => {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        };
+
+        animate();
+
+        window.addEventListener("resize", () => {
+            const newWidth = window.innerWidth;
+            const newHeight = window.innerHeight;
+
+            camera.aspect = newWidth / newHeight;
+            camera.updateProjectionMatrix();
+
+            renderer.setSize(newWidth, newHeight);
+        });
     }, []);
 
-    useEffect(() => {
-        if (!webgi) return;
-        setupViewer();
-    }, [webgi, setupViewer]);
-
-    return (
-            <canvas
-                className={styles.webgicanvas}
-                ref={canvasRef}
-            />
-    );
+    return <canvas className={styles.threejscanvas} ref={canvasRef} />;
 }
