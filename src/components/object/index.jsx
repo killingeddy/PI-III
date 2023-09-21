@@ -1,17 +1,16 @@
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader";
 import React, { useRef, useEffect } from "react";
-import styles from "./styles.module.scss";
 import * as THREE from "three";
 
-export default function Object({ model, position, color }) {
+export default function Object({ model, objPosition, color, wPerspective, hPerspective }) {
     const canvasRef = useRef(null);
 
     useEffect(() => {
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current, alpha: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setSize(wPerspective, hPerspective);
 
         const controls = new OrbitControls(camera, renderer.domElement);
 
@@ -27,7 +26,7 @@ export default function Object({ model, position, color }) {
             scene.add(model);
         });
 
-        camera.position.set(parseInt(position.split(',')[0]), parseInt(position.split(',')[1]), parseInt(position.split(',')[2]));
+        camera.position.set(parseInt(objPosition.split(',')[0]), parseInt(objPosition.split(',')[1]), parseInt(objPosition.split(',')[2]));
 
         const animate = () => {
             requestAnimationFrame(animate);
@@ -36,17 +35,7 @@ export default function Object({ model, position, color }) {
         };
 
         animate();
+    }, [objPosition, model, color, wPerspective, hPerspective]);
 
-        window.addEventListener("resize", () => {
-            const newWidth = window.innerWidth;
-            const newHeight = window.innerHeight;
-
-            camera.aspect = newWidth / newHeight;
-            camera.updateProjectionMatrix();
-
-            renderer.setSize(newWidth, newHeight);
-        });
-    }, [position, model, color]);
-
-    return <canvas className={styles.threejscanvas} ref={canvasRef} />;
+    return <canvas ref={canvasRef} />;
 }
