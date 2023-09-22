@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const plugin = require('tailwindcss/plugin');
+const plugin = require("tailwindcss/plugin");
 module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -11,19 +11,7 @@ module.exports = {
       colors: {
         primary: "#FF6363",
       },
-      keyframes: {
-        fade: {
-          "0%": { opacity: 0 },
-          "100%": { opacity: 1 },
-        },
-      },
-      animation: {
-        fade: "fade 2s ease-in-out",
-        fadeout: "fade 2s ease-in-out reverse",
-      },
     },
   },
-  plugins: [
-    require('tailwind-scrollbar-hide'),
-  ],
+  plugins: [require("tailwind-scrollbar-hide")],
 };
