@@ -11,6 +11,9 @@ module.exports = {
       colors: {
         primary: "#FF6363",
       },
+      backgroundImage: {
+        'gifbg': 'url("/gifbg.gif")',
+      }
     },
   },
   plugins: [require("tailwind-scrollbar-hide")],
