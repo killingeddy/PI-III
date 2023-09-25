@@ -12,7 +12,7 @@ module.exports = {
         primary: "#FF6363",
       },
       backgroundImage: {
-        'gifbg': 'url("/gifbg.gif")',
+        'grainy': 'url(https://grainy-gradients.vercel.app/noise.svg)'
       }
     },
   },
