@@ -8,7 +8,7 @@ import React from 'react';
 export default function Home() {
 
   const [isPlaying, setIsPlaying] = React.useState(false);
-  const [modalIsOpen, setIsOpen] = React.useState(false);
+  const [modalIsOpen, setIsOpen] = React.useState(true);
 
   return (
     <div className="scrollbar-hide relative containe h-screen bg-sky-950 overflow-x-hidden">
