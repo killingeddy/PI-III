@@ -7,9 +7,9 @@ export default function Level({ model, objPosition, color, timeScale, title, sub
             <Fade triggerOnce={true} duration={5000} delay={1000}>
                 <div className="border-l-2 border-inherit w-10 h-screen absolute ml-16 mt-20" />
                 <div className="ml-20 mt-20">
-                    <h1 className="text-white text-6xl font-bold">{title}</h1>
-                    <h1 className="text-white text-6xl font-bold">{subtitle}</h1>
-                    <p className="text-white text-1xl w-2/4 mt-5">{content}</p>
+                    <h1 className="text-white text-6xl font-bold font-title">{title}</h1>
+                    <h1 className="text-white text-6xl font-bold font-body-bold">{subtitle}</h1>
+                    <p className="text-white text-1xl w-2/4 mt-5 font-body">{content}</p>
                 </div>
             </Fade>
             <Fade triggerOnce={true} duration={10000} delay={1000}>

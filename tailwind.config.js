@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-const plugin = require("tailwindcss/plugin");
 module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -13,7 +12,12 @@ module.exports = {
       },
       backgroundImage: {
         'grainy': 'url(https://grainy-gradients.vercel.app/noise.svg)'
-      }
+      },
+    },
+    fontFamily: {
+      'title': ['Title'],
+      'body': ['Body'],
+      'body-bold': ['BodyBold'],
     },
   },
   plugins: [require("tailwind-scrollbar-hide")],
