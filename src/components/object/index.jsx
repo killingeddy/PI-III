@@ -51,7 +51,7 @@ export default function Object({ model, objPosition, color, wPerspective, hPersp
         };
 
         animate();
-    }, [objPosition, model, color, wPerspective, hPerspective]);
+    }, [objPosition, model, color, wPerspective, hPerspective, timeScale]);
 
     return <canvas ref={canvasRef} />;
 }
