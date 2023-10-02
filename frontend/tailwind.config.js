@@ -8,7 +8,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#FF6363",
+        dorange: '#ff6b35',
+        lorange: '#f7c59f',
+        neutral: '#efefd0',
+        dblue: '#004e89',
+        lblue: '#1a659e',
       },
       backgroundImage: {
         'grainy': 'url(https://grainy-gradients.vercel.app/noise.svg)'
@@ -18,6 +22,7 @@ module.exports = {
       'title': ['Title'],
       'body': ['Body'],
       'body-bold': ['BodyBold'],
+      'body-thin': ['BodyThin'],
     },
   },
   plugins: [require("tailwind-scrollbar-hide")],

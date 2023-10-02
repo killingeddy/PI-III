@@ -25,15 +25,20 @@ body::-webkit-scrollbar {
 
 @font-face {
   font-family: 'Title';
-  src: url('/fonts/title.ttf');
+  src: url('/fonts/Blaz Thor.otf');
 }
 
 @font-face {
   font-family: 'Body';
-  src: url('/fonts/body.otf');
+  src: url('/fonts/Poppins-Regular.ttf');
 }
 
 @font-face {
   font-family: 'BodyBold';
-  src: url('/fonts/body_bold.otf');
+  src: url('/fonts/Poppins-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'BodyThin';
+  src: url('/fonts/Poppins-Thin.ttf');
 }

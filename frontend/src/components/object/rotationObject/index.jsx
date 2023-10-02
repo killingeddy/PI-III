@@ -11,14 +11,14 @@ export default function ObjectRotation({ model, objPosition, color, wPerspective
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current, alpha: true });
-        renderer.setSize(wPerspective ? wPerspective : window.innerWidth, hPerspective ? hPerspective : window.innerHeight);
+        renderer.setSize(1600, 900);
 
         const controls = new OrbitControls(camera, renderer.domElement);
 
         controls.enableZoom = false;
 
         const light = new THREE.DirectionalLight(parseInt(color), 1);
-        light.position.set(1, 1, 1).normalize();
+        light.position.set(0, 0, 1).normalize();
         scene.add(light);
 
         const loader = new GLTFLoader();
