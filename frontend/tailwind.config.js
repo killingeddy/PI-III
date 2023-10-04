@@ -24,6 +24,9 @@ module.exports = {
       'body-bold': ['BodyBold'],
       'body-thin': ['BodyThin'],
     },
+    borderWidth: {
+      '10': '60px',
+    },
   },
   plugins: [require("tailwind-scrollbar-hide")],
 };
