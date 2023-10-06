@@ -20,6 +20,7 @@ export default function ObjectRotation({ model, objPosition, color, wPerspective
         const light = new THREE.DirectionalLight(parseInt(color), 1);
         light.position.set(0, 0, 1).normalize();
         scene.add(light);
+        scene.add(new THREE.AmbientLight(parseInt(color), 0.5));
 
         const loader = new GLTFLoader();
 

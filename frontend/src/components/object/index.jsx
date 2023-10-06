@@ -20,6 +20,7 @@ export default function Object({ model, objPosition, color, wPerspective, hPersp
         const light = new THREE.DirectionalLight(parseInt(color), 1);
         light.position.set(1, 1, 1).normalize();
         scene.add(light);
+        scene.add(new THREE.AmbientLight(parseInt(color), 0.5));
 
         const loader = new GLTFLoader();
         var mixer = new AnimationMixer();

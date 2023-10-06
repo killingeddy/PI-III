@@ -3,11 +3,14 @@ import Object from '@/components/object';
 import { Modal } from "@mui/material";
 import React from 'react';
 
-export default function InitialModal({ open, isOpen, playing, isPlaying }) {
+export default function InitialModal({ open, isOpen, isPlaying, handle }) {
+    
     const handleAudio = () => {
         isOpen(false)
         isPlaying(true)
+        handle.enter()
     }
+
     return (
         <Modal
             open={open}

@@ -1,9 +1,10 @@
 import { TypeAnimation } from 'react-type-animation';
+import { HiChevronDoubleUp } from 'react-icons/hi';
+import { Fade } from 'react-awesome-reveal';
 import Object from "../object";
 import React from 'react';
-import { Fade } from 'react-awesome-reveal';
 
-export default function Intro() {
+export default function Intro({ goUp }) {
 
     const text = [
         'Olá! Eu sou Aqua, um peixe-anjo-imperador e a mascote aqui do Planeta Aqua. Estou muito feliz em conhecê-lo! Você está pronto para explorar o oceano comigo?',
@@ -91,6 +92,15 @@ export default function Intro() {
                     )
                 }
             </div>
+            {
+                goUp &&
+                <button
+                    className="absolute top-10 right-10 w-10 h-10 border-2 border-dorange rounded-lg uppercase cursor-pointer z-50 justify-center flex items-center"
+                    onClick={goUp}
+                >
+                    <HiChevronDoubleUp className="text-dorange text-3xl" />
+                </button>
+            }
         </div>
     )
 }
