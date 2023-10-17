@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url = env("DATABASE_URL")
+}
+
+model Usuario {
+  id              String      @id @default(auto()) @map("_id") @db.ObjectId
+  nome            String
+  cpf             String      @unique
+  email           String      @unique
+  telefone        String
+  senha           String
+  animais         Animal[]   @relation("dono")
+}
+
+model Animal {
+  id              String      @id @default(auto()) @map("_id") @db.ObjectId
+  nome            String
+  raca            String     
+  peso            Int
+  tamanho         Int
+  dono            Usuario     @relation("dono", fields: [donoId], references: [id])
+  donoId          String
+  cor             String
+}
+
+model Raca {
+  id              String      @id @default(auto()) @map("_id") @db.ObjectId
+  nome            String
+  especie         Especie     @relation("especie", fields: [especieId], references: [id])
+  especieId       String
+}
+
+model Especie {
+  id              String      @id @default(auto()) @map("_id") @db.ObjectId
+  nome            String
+  racas           Raca[]     @relation("especie")
+}
