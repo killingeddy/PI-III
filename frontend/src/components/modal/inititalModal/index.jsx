@@ -23,13 +23,12 @@ export default function InitialModal({ open, isOpen, isPlaying, handle }) {
                 <div className="absolute top-0 right-0 z-0 w-full h-full">
                     <Object model={'fishes'} objPosition={'0, 0, 1'} color={'0xaba5f0'} timeScale={0.5} />
                 </div>
-                <div className="p-10 bg-sky-950 flex justify-between items-center flex-col border-0 rounded-3xl outline-none focus:outline-none relative">
-                    <div className={`justify-center flex-col items-center text-center flex`}>
+                <div className="p-10 bg-dblue flex justify-between items-center flex-col border-0 rounded-3xl outline-none focus:outline-none relative">
                         <FaHeadphonesAlt color='#ffffff' size={40} />
-                        <p className="text-white text-1xl">Esse site usa áudio</p>
+                    <div className={`justify-between flex-col items-center text-center flex m-2`}>
                         <p className="text-white text-1xl">Use fones de ouvido para melhor experiência</p>
                     </div>
-                    <button onClick={() => handleAudio()} className="justify-center items-center text-center flex bg-sky-400 hover:bg-sky-500 text-white font-bold py-2 px-4 rounded-3xl">
+                    <button onClick={() => handleAudio()} className="justify-center items-center text-center flex bg-dorange font-bold py-2 px-4 rounded-3xl m-3">
                         <p className="text-white text-1xl">Clique aqui para aventurar-se</p>
                     </button>
                 </div>

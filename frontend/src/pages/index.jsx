@@ -4,6 +4,7 @@ import InitialModal from '@/components/modal/inititalModal';
 import AudioPlayer from '@/components/audioPlayer';
 import Intro from '@/components/intro';
 import Level from '@/components/level';
+import Link from 'next/link';
 import React from 'react';
 
 export default function Home() {
@@ -35,6 +36,9 @@ export default function Home() {
             <h1 className="text-3xl text-neutral font-body-bold uppercase m-0">Desvendando o oceano</h1>
             <button onClick={() => handleClick(first)} className="bg-dorange text-white font-body-bold uppercase text-xl px-8 py-2 rounded-full mt-8 cursor-pointer z-50">Explorar</button>
           </div>
+          <Link href="/explore">
+            <button className="absolute bottom-5 left-5 font-title text-dorange text-xl cursor-pointer z-50">Pular intro</button>
+          </Link>
           <div className="absolute left-1/3 bottom-0">
             <ObjectRotation model={'diver'} objPosition={'-1, 0, -1'} color={'0xFFD700'} />
           </div>
