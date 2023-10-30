@@ -8,8 +8,8 @@ export default function Intro({ goUp }) {
 
     const text = [
         'Olá! Eu sou Aqua, um peixe-anjo-imperador e a mascote aqui do Planeta Aqua. Estou muito feliz em conhecê-lo! Você está pronto para explorar o oceano comigo?',
-        'Como você já percebeu, aqui no Planeta Aqua, o oceano é um lugar verdadeiramente especial. É repleto de vida e abriga muitas criaturas incríveis. Assim como o oceano, o Planeta Aqua pode ser vasto e misterioso.',
-        'Para evitar que você se sinta perdido, vou fazer um tour pelo Planeta Aqua e mostrar como o oceano é imenso e repleto de vida. Vamos começar a nossa aventura?',
+        'Otimo! Como você já deve ter percebido, aqui no Planeta Aqua, o oceano é um lugar verdadeiramente especial. É repleto de vida e abriga muitas criaturas incríveis. Assim como o oceano, o Planeta Aqua pode ser vasto e misterioso.',
+        'Pois então, para evitar que você se sinta perdido, vou fazer um tour pelo Planeta Aqua e mostrar como o oceano é imenso e repleto de vida. Vamos começar a nossa aventura?',
         'Aqui você pode explorar o oceano e aprender sobre as criaturas que vivem nele. Bacana, né?',
         'Nessa seção você pode adotar seu próprio animal marinho e aprender sobre ele. Você pode até mesmo dar um nome para ele!',
         'Aqui é uma galeria com alguns dos animais marinhos mais incríveis do oceano. Você pode aprender sobre eles e entender por que eles são tão especiais.',
@@ -18,7 +18,7 @@ export default function Intro({ goUp }) {
     ]
 
     const [finished, setFinished] = React.useState(0)
-    const [go, setGo] = React.useState(7)
+    const [go, setGo] = React.useState(0)
 
     const [blocksstyle, setBlocksStyle] = React.useState('absolute w-1/5 z-50 left-10 rounded-3xl top-1/2 transform -translate-y-1/2 flex flex-col justify-between items-center')
     const [blockstyle, setBlockStyle] = React.useState('bg-dorange text-white font-body-bold uppercase text-xl px-8 py-2 rounded-3xl mt-8 cursor-pointer z-50 w-full h-36')
@@ -57,7 +57,7 @@ export default function Intro({ goUp }) {
                             {
                                 finished === 1 &&
                                 <Fade triggerOnce={true} duration={1000}>
-                                    <button onClick={() => setGo(1)} className="bg-dorange text-white font-body-bold uppercase text-xl px-8 py-2 rounded-full mt-8 cursor-pointer z-50">Continuar</button>
+                                    <button onClick={() => setGo(1)} className="bg-dorange text-white font-body-bold uppercase text-xl px-8 py-2 rounded-full mt-8 cursor-pointer z-50">Estou mais do que pronto!</button>
                                 </Fade>
                             }
                         </div>
@@ -81,7 +81,7 @@ export default function Intro({ goUp }) {
                             {
                                 finished === 2 &&
                                 <Fade triggerOnce={true} duration={1000}>
-                                    <button onClick={() => setGo(2)} className="bg-dorange text-white font-body-bold uppercase text-xl px-8 py-2 rounded-full mt-8 cursor-pointer z-50">Continuar</button>
+                                    <button onClick={() => setGo(2)} className="bg-dorange text-white font-body-bold uppercase text-xl px-8 py-2 rounded-full mt-8 cursor-pointer z-50">Realmente Aqua, estou um pouco perdido</button>
                                 </Fade>
                             }
                         </div>
@@ -105,7 +105,7 @@ export default function Intro({ goUp }) {
                             {
                                 finished === 3 &&
                                 <Fade triggerOnce={true} duration={1000}>
-                                    <button onClick={() => setGo(3)} className="bg-dorange text-white font-body-bold uppercase text-xl px-8 py-2 rounded-full mt-8 cursor-pointer z-50">Explorar</button>
+                                    <button onClick={() => setGo(3)} className="bg-dorange text-white font-body-bold uppercase text-xl px-8 py-2 rounded-full mt-8 cursor-pointer z-50">Estou pronto pra mergulhar nessa aventura</button>
                                 </Fade>
                             }
                         </div>
@@ -129,7 +129,7 @@ export default function Intro({ goUp }) {
                             {
                                 finished === 4 &&
                                 <Fade triggerOnce={true} duration={1000}>
-                                    <button onClick={() => setGo(4)} className="bg-dorange text-white font-body-bold uppercase text-xl px-8 py-2 rounded-full mt-8 cursor-pointer z-50">Explorar</button>
+                                    <button onClick={() => setGo(4)} className="bg-dorange text-white font-body-bold uppercase text-xl px-8 py-2 rounded-full mt-8 cursor-pointer z-50">Entendi, qual o próximo?</button>
                                 </Fade>
                             }
                         </div>
@@ -153,7 +153,7 @@ export default function Intro({ goUp }) {
                             {
                                 finished === 5 &&
                                 <Fade triggerOnce={true} duration={1000}>
-                                    <button onClick={() => setGo(5)} className="bg-dorange text-white font-body-bold uppercase text-xl px-8 py-2 rounded-full mt-8 cursor-pointer z-50">Explorar</button>
+                                    <button onClick={() => setGo(5)} className="bg-dorange text-white font-body-bold uppercase text-xl px-8 py-2 rounded-full mt-8 cursor-pointer z-50">Muito legal, o que mais tem por aqui?</button>
                                 </Fade>
                             }
                         </div>
@@ -177,7 +177,7 @@ export default function Intro({ goUp }) {
                             {
                                 finished === 6 &&
                                 <Fade triggerOnce={true} duration={1000}>
-                                    <button onClick={() => setGo(6)} className="bg-dorange text-white font-body-bold uppercase text-xl px-8 py-2 rounded-full mt-8 cursor-pointer z-50">Explorar</button>
+                                    <button onClick={() => setGo(6)} className="bg-dorange text-white font-body-bold uppercase text-xl px-8 py-2 rounded-full mt-8 cursor-pointer z-50">Bacana! Me conte mais.</button>
                                 </Fade>
                             }
                         </div>
@@ -201,7 +201,7 @@ export default function Intro({ goUp }) {
                             {
                                 finished === 7 &&
                                 <Fade triggerOnce={true} duration={1000}>
-                                    <button onClick={() => setGo(7)} className="bg-dorange text-white font-body-bold uppercase text-xl px-8 py-2 rounded-full mt-8 cursor-pointer z-50">Explorar</button>
+                                    <button onClick={() => setGo(7)} className="bg-dorange text-white font-body-bold uppercase text-xl px-8 py-2 rounded-full mt-8 cursor-pointer z-50">Vamos!</button>
                                 </Fade>
                             }
                         </div>
@@ -225,7 +225,7 @@ export default function Intro({ goUp }) {
                             {
                                 finished === 8 &&
                                 <Fade triggerOnce={true} duration={1000}>
-                                    <button onClick={() => setGo(8)} className="bg-dorange text-white font-body-bold uppercase text-xl px-8 py-2 rounded-full mt-8 cursor-pointer z-50">Explorar</button>
+                                    <button onClick={() => setGo(8)} className="bg-dorange text-white font-body-bold uppercase text-xl px-8 py-2 rounded-full mt-8 cursor-pointer z-50">Beleza, te vejo por ai Aqua.</button>
                                 </Fade>
                             }
                         </div>
@@ -248,28 +248,40 @@ export default function Intro({ goUp }) {
                         {
                             go >= 3 && (
                                 <Fade triggerOnce={true} duration={1000} className={`${fadeContainer}`}>
-                                    <button className={`${blockstyle}`}>Explorar</button>
+                                    <button className={`${blockstyle}`} style={{
+                                        filter: go != 3 && go < 8 ? 'grayscale(80%)' : 'none',
+                                        cursor: go != 3 && go < 8 ? 'not-allowed' : 'pointer'
+                                    }}>Aprenda sobre o oceano</button>
                                 </Fade>
                             )
                         }
                         {
                             go >= 4 && (
                                 <Fade triggerOnce={true} duration={1000} className={`${fadeContainer}`}>
-                                    <button className={`${blockstyle}`}>Explorar</button>
+                                    <button className={`${blockstyle}`} style={{
+                                        filter: go != 4 && go < 8 ? 'grayscale(80%)' : 'none',
+                                        cursor: go != 4 && go < 8 ? 'not-allowed' : 'pointer'
+                                    }}>Tenha seu próprio bichinho</button>
                                 </Fade>
                             )
                         }
                         {
                             go >= 5 && (
                                 <Fade triggerOnce={true} duration={1000} className={`${fadeContainer}`}>
-                                    <button className={`${blockstyle}`}>Explorar</button>
+                                    <button className={`${blockstyle}`} style={{
+                                        filter: go != 5 && go < 8 ? 'grayscale(80%)' : 'none',
+                                        cursor: go != 5 && go < 8 ? 'not-allowed' : 'pointer'
+                                    }}>Explorar galeria</button>
                                 </Fade>
                             )
                         }
                         {
                             go >= 6 && (
                                 <Fade triggerOnce={true} duration={1000} className={`${fadeContainer}`}>
-                                    <button className={`${blockstyle}`}>Explorar</button>
+                                    <button className={`${blockstyle}`} style={{
+                                        filter: go != 6 && go < 8 ? 'grayscale(80%)' : 'none',
+                                        cursor: go != 6 && go < 8 ? 'not-allowed' : 'pointer'
+                                    }}>Como cuidar do oceano</button>
                                 </Fade>
                             )
                         }
