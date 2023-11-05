@@ -4,7 +4,6 @@ import Object from '@/components/object';
 export default function Level({ model, objPosition, color, timeScale, title, subtitle, content, goDown, goUp }) {
     return (
         <div className="container mx-auto h-screen w-screen flex relative">
-            <div className="border-l-2 border-inherit border-lorange w-10 h-screen absolute ml-16 mt-20 z-50" />
             <div className="ml-20 mt-20">
                 <div className="flex flex-row text-6xl font-title">
                     <h1 className="text-dorange">{title}:</h1>

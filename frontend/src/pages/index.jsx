@@ -2,7 +2,8 @@ import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 import ObjectRotation from '@/components/object/rotationObject';
 import InitialModal from '@/components/modal/inititalModal';
 import AudioPlayer from '@/components/audioPlayer';
-import Intro from '@/components/intro';
+import { HiChevronDoubleUp } from 'react-icons/hi';
+import Object from '@/components/object';
 import Level from '@/components/level';
 import Link from 'next/link';
 import React from 'react';
@@ -58,8 +59,27 @@ export default function Home() {
         <div ref={fifth}>
           <Level color={'0x7e8283'} model={'spermwhale'} objPosition={'60, 20, 1'} timeScale={1} title={'Zona Abissal'} subtitle={'O Lugar mais Profundo'} content={'Agora, estamos nas profundezas escuras e frias do oceano. A zona abissal é como a parte mais estranha da festa, onde os convidados são realmente únicos. Peixes abissais de águas profundas têm dentes assustadores, e vermes tubulares são como alienígenas marinhos. Isópodes gigantes são como os gigantes da festa e holotúrias limpam tudo.'} goDown={() => handleClick(sixth)} goUp={() => handleClick(fourth)} />
         </div>
-        <div ref={sixth}>
-          <Intro goUp={() => handleClick(fifth)} />
+        <div ref={sixth} className="container mx-auto h-screen w-screen flex relative">
+          <button
+            className="absolute top-10 right-10 w-10 h-10 border-2 border-dorange rounded-lg uppercase cursor-pointer z-50 justify-center flex items-center"
+            onClick={() => handleClick(fifth)}
+          >
+            <HiChevronDoubleUp className="text-dorange text-3xl" />
+          </button>
+          <div className="ml-20 mt-20">
+            <div className="flex flex-row text-6xl font-title">
+              <h1 className="text-dorange">Oceanos:</h1>
+              <h1 className="text-neutral ml-2">A vida da terra!</h1>
+            </div>
+            <p className="text-lorange text-justify text-1xl w-2/4 mt-5 font-body">Os oceanos, cobrindo mais de 70% da superfície da Terra, não são apenas vastas extensões de água; são os pilares da vida em nosso planeta. Eles desempenham um papel crucial em nossa sobrevivência, desde estabilização do clima, produção de oxigênio até a nossa alimentação. E mesmo assim menos de 20% dos oceanos foram mapeados e explorados! Grande parte do nosso próprio planeta permanece inexplorada e cheia de segredos. Nas profundezas escuras, encontramos criaturas surpreendentes e ecossistemas únicos que ainda estamos aprendendo a entender.</p>
+            <p className="text-lorange text-justify text-1xl w-2/4 mt-5 font-body">O Planeta Aqua tem a missão de compartilhar o maravilhoso mundo dos oceanos com o público e promover a conscientização sobre a importância da conservação. Queremos inspirar a ação, para que juntos possamos proteger nossos preciosos oceanos. Junte-se a nós nesta jornada emocionante! Explore, aprenda e descubra o mundo azul que sustenta a vida na Terra. Vamos fazer a diferença para um oceano mais saudável e um planeta mais feliz! </p>
+            <Link href="/explore">
+              <button className="bg-dorange text-white font-body-bold uppercase text-xl px-8 py-2 rounded-full mt-8 cursor-pointer z-50">Clique aqui para explorar</button>
+            </Link>
+          </div>
+          <div className="absolute top-0 left-2/4">
+            <Object model={"earth"} objPosition={"0, 0, 100"} color={"0xFFFFFF"} />
+          </div>
         </div>
         <InitialModal open={modalIsOpen} isOpen={setIsOpen} playing={isPlaying} isPlaying={setIsPlaying} handle={handle} />
       </div>
