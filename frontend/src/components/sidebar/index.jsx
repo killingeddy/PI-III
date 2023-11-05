@@ -103,10 +103,9 @@ export default function SidebarComponent() {
                 <MenuItem onClick={() => window.location.href = '/explore'} active={route.pathname == '/explore'} className='font-title tracking-wide text-dblue' icon={<GiShipWheel size={'30px'} color='#004e89' />}>Explorador</MenuItem>
                 <MenuItem onClick={() => window.location.href = '/gallery'} active={route.pathname == '/gallery'} className='font-title tracking-wide text-dorange' icon={<GiOctopus size={'30px'} color='#ff6b35' />}>Galeria</MenuItem>
                 <MenuItem onClick={() => window.location.href = '/pet'} active={route.pathname == '/pet'} className='font-title tracking-wide text-dblue' icon={<GiJugglingSeal size={'30px'} color='#004e89' />}>Seu bichinho</MenuItem>
-                <MenuItem onClick={() => window.location.href = '/learning'} active={route.pathname == '/learning'} className='font-title tracking-wide text-dorange' icon={<GiCirclingFish size={'30px'} color='#ff6b35' />}>Centro de aprendizagem</MenuItem>
-                <MenuItem onClick={() => window.location.href = '/preservation'} active={route.pathname == '/preservation'} className='font-title tracking-wide text-dblue' icon={<GiIceberg size={'30px'} color='#004e89' />}>Preservação</MenuItem>
-                <MenuItem onClick={() => window.location.href = '/faq'} active={route.pathname == '/faq'} className='font-title tracking-wide text-dorange' icon={<GiSubmarine size={'30px'} color='#ff6b35' />}>Perguntas frequentes</MenuItem>
-                <MenuItem onClick={() => window.location.href = '/contact'} active={route.pathname == '/contact'} className='font-title tracking-wide text-dblue' icon={<GiJellyfish size={'30px'} color='#004e89' />}>Contato</MenuItem>
+                <MenuItem onClick={() => window.location.href = '/preservation'} active={route.pathname == '/preservation'} className='font-title tracking-wide text-dorange' icon={<GiIceberg size={'30px'} color='#ff6b35' />}>Preservação</MenuItem>
+                <MenuItem onClick={() => window.location.href = '/faq'} active={route.pathname == '/faq'} className='font-title tracking-wide text-dblue' icon={<GiSubmarine size={'30px'} color='#004e89' />}>Perguntas frequentes</MenuItem>
+                <MenuItem onClick={() => window.location.href = '/contact'} active={route.pathname == '/contact'} className='font-title tracking-wide text-dorange' icon={<GiJellyfish size={'30px'} color='#ff6b35' />}>Contato</MenuItem>
             </Menu>
         </Sidebar>
     )
