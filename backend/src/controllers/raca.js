@@ -15,8 +15,19 @@ controller.create = async function (req, res) {
 
 controller.retrieveAll = async function (req, res) {
   try {
+    const especie = req.query.especie;
+
+    if (req.query.especie) {
+      const result = await prisma.raca.findMany({
+        where: { especieId: especie },
+      });
+      if (result) res.send(result);
+      else res.status(404).end();
+      return;
+    }
+
     const result = await prisma.raca.findMany({
-      orderBy: [{ nome: "asc" }],
+      orderBy: [{ nome: "asc" }]
     });
     res.send(result);
   } catch (error) {
