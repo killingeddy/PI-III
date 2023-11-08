@@ -2,6 +2,7 @@ import { GiSeaTurtle, GiFlatfish, GiSeahorse, GiCrab, GiMantaRay, GiJellyfish } 
 import SidebarComponent from "@/components/sidebar";
 import { SliderPicker } from "react-color";
 import Object from "@/components/object";
+import Loader from "@/components/loader";
 import React from "react";
 
 export default function Pet() {
@@ -9,11 +10,15 @@ export default function Pet() {
     const [color, setColor] = React.useState("#ffffff");
     const [name, setName] = React.useState("");
     const [pet, setPet] = React.useState("");
-    const [position, setPosition] = React.useState("0, 0, 0");
 
-    const positionConfig = (position) => {
-        setPosition(position);
-    }
+    const [loading, setLoading] = React.useState(false);
+
+    React.useEffect(() => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+        }, 2500);
+    }, [pet, color]);
 
     return (
         <>
@@ -21,32 +26,40 @@ export default function Pet() {
             <div className="scrollbar-hide relative containe h-screen bg-dblue overflow-hidden">
                 <div className="flex flex-col h-full ml-20 relative overflow-hidden scrollbar-hide items-center justify-center">
                     <div className="flex flex-row items-center justify-center w-[90%] h-[90%]">
-                        <div className="p-2 h-[100%] w-[80%] flex flex-col rounded-3xl relative">
+                        <div className="p-2 h-[100%] w-[80%] flex flex-col rounded-3xl relative items-center justify-center">
+                            {
+                                loading &&
+                                <div className="absolute z-50 top-0 left-0 w-full h-full bg-dblue flex flex-col items-center justify-center">
+                                    <Loader />
+                                </div>
+                            }
                             <div className="absolute -left-1/3 -top-32">
-                                {
-                                    pet === "turtle" &&
-                                    <Object color={`0x${color.replace("#", "")}`} model={'turtle'} objPosition={'-180, 0, 380'} />
-                                }
-                                {
-                                    pet === "fish" &&
-                                    <Object color={`0x${color.replace("#", "")}`} model={'angelfish'} objPosition={'0, 0, 1'} />
-                                }
-                                {
-                                    pet === "seahorse" &&
-                                    <Object color={`0x${color.replace("#", "")}`} model={'seahorse'} objPosition={'180, 0, 100'} />
-                                }
-                                {
-                                    pet === "crab" &&
-                                    <Object color={`0x${color.replace("#", "")}`} model={'crab'} objPosition={'0, 1, 2'} />
-                                }
-                                {
-                                    pet === "mantaray" &&
-                                    <Object color={`0x${color.replace("#", "")}`} model={'mantaray'} objPosition={'-20, 1, 30'} />
-                                }
-                                {
-                                    pet === "squid" &&
-                                    <Object color={`0x${color.replace("#", "")}`} model={'jellyfish'} objPosition={'0, 0, 18'} />
-                                }
+                                <>
+                                    {
+                                        pet === "turtle" &&
+                                        <Object color={`0x${color.replace("#", "")}`} model={'turtle'} objPosition={'-200, 5, 250'} />
+                                    }
+                                    {
+                                        pet === "fish" &&
+                                        <Object color={`0x${color.replace("#", "")}`} model={'angelfish'} objPosition={'0, 0, 1'} />
+                                    }
+                                    {
+                                        pet === "seahorse" &&
+                                        <Object color={`0x${color.replace("#", "")}`} model={'seahorse'} objPosition={'180, 0, 100'} />
+                                    }
+                                    {
+                                        pet === "crab" &&
+                                        <Object color={`0x${color.replace("#", "")}`} model={'crab'} objPosition={'0, 1, 2'} />
+                                    }
+                                    {
+                                        pet === "mantaray" &&
+                                        <Object color={`0x${color.replace("#", "")}`} model={'mantaray'} objPosition={'-20, 1, 30'} />
+                                    }
+                                    {
+                                        pet === "squid" &&
+                                        <Object color={`0x${color.replace("#", "")}`} model={'jellyfish'} objPosition={'0, 0, 18'} />
+                                    }
+                                </>
                             </div>
                         </div>
                         <div className="p-2 h-auto w-[20%] flex flex-col bg-neutral rounded-3xl z-50">
