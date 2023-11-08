@@ -29,9 +29,6 @@ export default function Contact() {
                             </div>
                             <button className="h-10 w-5/6 mt-3 rounded-3xl bg-dorange text-dblue font-title">Enviar</button>
                         </div>
-                        <div className="flex flex-col items-center justify-center w-1/3 bg-dorange h-full rounded-3xl overflow-hidden pt-64">
-                            <Object model={'submarine'} objPosition={'2, 2, 2'} color={'0xFFFFFF'} />
-                        </div>
                     </div>
                 </div>
             </div>

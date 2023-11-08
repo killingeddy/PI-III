@@ -1,4 +1,4 @@
-import { GiSeaTurtle, GiFlatfish, GiSeahorse, GiCrab } from "react-icons/gi";
+import { GiSeaTurtle, GiFlatfish, GiSeahorse, GiCrab, GiMantaRay, GiJellyfish } from "react-icons/gi";
 import SidebarComponent from "@/components/sidebar";
 import { SliderPicker } from "react-color";
 import Object from "@/components/object";
@@ -10,7 +10,6 @@ export default function Pet() {
     const [name, setName] = React.useState("");
     const [pet, setPet] = React.useState("");
     const [position, setPosition] = React.useState("0, 0, 0");
-
 
     const positionConfig = (position) => {
         setPosition(position);
@@ -24,23 +23,52 @@ export default function Pet() {
                     <div className="flex flex-row items-center justify-center w-[90%] h-[90%]">
                         <div className="p-2 h-[100%] w-[80%] flex flex-col rounded-3xl relative">
                             <div className="absolute -left-1/3 -top-32">
-                                <Object color={`0x${color.replace("#", "")}`} model={pet} objPosition={position} />
+                                {
+                                    pet === "turtle" &&
+                                    <Object color={`0x${color.replace("#", "")}`} model={'turtle'} objPosition={'-180, 0, 380'} />
+                                }
+                                {
+                                    pet === "fish" &&
+                                    <Object color={`0x${color.replace("#", "")}`} model={'angelfish'} objPosition={'0, 0, 1'} />
+                                }
+                                {
+                                    pet === "seahorse" &&
+                                    <Object color={`0x${color.replace("#", "")}`} model={'seahorse'} objPosition={'180, 0, 100'} />
+                                }
+                                {
+                                    pet === "crab" &&
+                                    <Object color={`0x${color.replace("#", "")}`} model={'crab'} objPosition={'0, 1, 2'} />
+                                }
+                                {
+                                    pet === "mantaray" &&
+                                    <Object color={`0x${color.replace("#", "")}`} model={'mantaray'} objPosition={'-20, 1, 30'} />
+                                }
+                                {
+                                    pet === "squid" &&
+                                    <Object color={`0x${color.replace("#", "")}`} model={'jellyfish'} objPosition={'0, 0, 18'} />
+                                }
                             </div>
                         </div>
                         <div className="p-2 h-auto w-[20%] flex flex-col bg-neutral rounded-3xl z-50">
                             <p className="text-dblue text-center font-body-bold">Escolha o seu pet</p>
                             <div className="flex flex-row items-center justify-between flex-wrap w-[100%]">
-                                <div className="flex flex-col items-center justify-center w-[45%] h-32 mt-2 bg-dorange rounded-3xl cursor-pointer" onClick={() => { setPet("turtle"), positionConfig('-180, 0, 380') }}>
+                                <div className="flex flex-col items-center justify-center w-[45%] h-32 mt-2 bg-dorange rounded-3xl cursor-pointer" onClick={() => { setPet("turtle") }}>
                                     <GiSeaTurtle className="text-6xl text-neutral" />
                                 </div>
-                                <div className="flex flex-col items-center justify-center w-[45%] h-32 mt-2 bg-dorange rounded-3xl cursor-pointer" onClick={() => { setPet("angelfish"), positionConfig('0, 0, 1') }}>
+                                <div className="flex flex-col items-center justify-center w-[45%] h-32 mt-2 bg-dorange rounded-3xl cursor-pointer" onClick={() => { setPet("fish") }}>
                                     <GiFlatfish className="text-6xl text-neutral" />
                                 </div>
-                                <div className="flex flex-col items-center justify-center w-[45%] h-32 mt-2 bg-dorange rounded-3xl cursor-pointer" onClick={() => { setPet("seahorse"), positionConfig('100, 0, 150') }}>
+                                <div className="flex flex-col items-center justify-center w-[45%] h-32 mt-2 bg-dorange rounded-3xl cursor-pointer" onClick={() => { setPet("seahorse") }}>
                                     <GiSeahorse className="text-6xl text-neutral" />
                                 </div>
-                                <div className="flex flex-col items-center justify-center w-[45%] h-32 mt-2 bg-dorange rounded-3xl cursor-pointer" onClick={() => { setPet("crab"), positionConfig('0, 0, 4') }}>
+                                <div className="flex flex-col items-center justify-center w-[45%] h-32 mt-2 bg-dorange rounded-3xl cursor-pointer" onClick={() => { setPet("crab") }}>
                                     <GiCrab className="text-6xl text-neutral" />
+                                </div>
+                                <div className="flex flex-col items-center justify-center w-[45%] h-32 mt-2 bg-dorange rounded-3xl cursor-pointer" onClick={() => { setPet("mantaray") }}>
+                                    <GiMantaRay className="text-6xl text-neutral" />
+                                </div>
+                                <div className="flex flex-col items-center justify-center w-[45%] h-32 mt-2 bg-dorange rounded-3xl cursor-pointer" onClick={() => { setPet("squid") }}>
+                                    <GiJellyfish className="text-6xl text-neutral" />
                                 </div>
                             </div>
                             <div className="mt-5">
