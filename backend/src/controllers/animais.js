@@ -27,8 +27,8 @@ controller.retrieveAll = async function (req, res) {
 
 controller.retrieveOne = async function (req, res) {
   try {
-    const result = await prisma.animal.findUnique({
-      where: { id: req.params.id },
+    const result = await prisma.animal.findFirst({
+      where: { donoId: req.params.id },
     });
     if (result) res.send(result);
     else res.status(404).end();

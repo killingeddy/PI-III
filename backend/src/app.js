@@ -1,4 +1,5 @@
 import express, { json, urlencoded } from "express";
+import verifyToken from "./tools/tokenVerify.js";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
 import cors from "cors";
@@ -19,7 +20,7 @@ app.use(cors());
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-app.use("/animais", animaisRouter);
+app.use("/animais", verifyToken, animaisRouter);
 app.use("/raca", racaRouter);
 app.use("/especie", especieRouter);
 
