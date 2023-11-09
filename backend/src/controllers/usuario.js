@@ -67,7 +67,7 @@ controller.login = async function (req, res) {
 
     const token = jwt.sign({ id: user.id, email: user.email }, process.env.JWT_SECRET);
 
-    res.send({ token });
+    res.send({ token, user: { id: user.id, nome: user.nome, email: user.email } });
   } catch (error) {
     console.error(error);
     res.status(500).send(error);
