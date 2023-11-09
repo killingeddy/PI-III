@@ -110,7 +110,7 @@ export default function SidebarComponent() {
                 <MenuItem onClick={() => window.location.href = '/pet'} active={route.pathname == '/pet'} className='font-title tracking-wide text-dblue' icon={<GiJugglingSeal size={'30px'} color='#004e89' />}>Seu bichinho</MenuItem>
                 <MenuItem onClick={() => window.location.href = '/gallery'} active={route.pathname == '/gallery'} className='font-title tracking-wide text-dorange' icon={<GiOctopus size={'30px'} color='#ff6b35' />}>Galeria</MenuItem>
                 <MenuItem onClick={() => window.location.href = '/explore'} active={route.pathname == '/explore'} className='font-title tracking-wide text-dblue' icon={<GiShipWheel size={'30px'} color='#004e89' />}>Explorador</MenuItem>
-                <MenuItem onClick={() => window.location.href = '/faq'} active={route.pathname == '/faq'} className='font-title tracking-wide text-dorange' icon={<GiSubmarine size={'30px'} color='#ff6b35' />}>Perguntas frequentes</MenuItem>
+                <MenuItem onClick={() => window.location.href = '/faq'} active={route.pathname == '/faq'} className='font-title tracking-wide text-dorange' icon={<GiSubmarine size={'30px'} color='#ff6b35' />}>Fale conosco</MenuItem>
                 {
                     token && (
                         <MenuItem onClick={() => { localStorage.clear(); setToken('') }} className='font-title tracking-wide text-dblue' icon={<HiLogout size={'30px'} color='#004e89' />}>Sair</MenuItem>
