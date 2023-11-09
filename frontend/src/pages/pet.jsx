@@ -92,6 +92,8 @@ export default function Pet() {
             .then((response) => {
                 setUserPet(true);
                 setName(response.data.nome);
+                setColor(response.data.cor);
+                setPet(response.data.raca);
             })
             .catch((error) => {
                 setUserPet(false);
@@ -214,7 +216,7 @@ export default function Pet() {
                             :
                             <>
                                 <h2 className="font-title text-3xl text-dorange">Acompanhe por onde <span className="text-neutral">{name}</span> anda</h2>
-                                <MapComponent latitude={getRandomLatitude()} longitude={getRandomLongitude()} animalName={name} />
+                                <MapComponent latitude={getRandomLatitude()} longitude={getRandomLongitude()} animalName={name} pet={pet} color={color} />
                             </>
                     }
                 </div>
