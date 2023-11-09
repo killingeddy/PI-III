@@ -56,6 +56,12 @@ export default function LoginModal({ open, isOpen }) {
         });
     }
 
+    React.useEffect(() => {
+        if (localStorage.getItem('token')) {
+            isOpen(false);
+        }
+    }, [isOpen, registerModal])
+
     return (
         <Modal
             open={open}
@@ -86,6 +92,7 @@ export default function LoginModal({ open, isOpen }) {
                                 className="bg-neutral w-full outline-none focus:outline-none rounded-3xl p-3 mb-5 font-bold"
                                 value={auth.senha}
                                 onChange={(e) => setAuth({ ...auth, senha: e.target.value })}
+                                onKeyDown={(e) => { if (e.key === 'Enter') login() }}
                             />
                             <button
                                 className="bg-dblue w-full outline-none focus:outline-none rounded-3xl p-3 text-white"

@@ -23,16 +23,35 @@ export default function RegisterModal({ open, isOpen }) {
         api
             .post('/users', auth)
             .then((response) => {
-                toast.success(`Usuário cadastrado com sucesso!`, {
-                    position: "top-left",
-                    autoClose: 2500,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: false,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
-                });
+                api
+                    .post('/users/login', {
+                        email: auth.email,
+                        senha: auth.senha
+                    })
+                    .then((response) => {
+                        localStorage.setItem('token', response.data.token);
+                        localStorage.setItem('user', JSON.stringify(response.data.user));
+                        isOpen(false);
+                        setAuth({
+                            email: '',
+                            senha: ''
+                        });
+                    })
+                    .catch((error) => {
+                        toast.error(`${error.response?.data?.error}`, {
+                            position: "top-left",
+                            autoClose: 2500,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: false,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "colored",
+                        });
+                    })
+                    .finally(() => {
+                        setLoading(false);
+                    })
             })
             .catch((error) => {
                 toast.error(`${error.response?.data?.error}`, {
@@ -101,6 +120,7 @@ export default function RegisterModal({ open, isOpen }) {
                                 className="bg-neutral w-full outline-none focus:outline-none rounded-3xl p-3 mb-5 font-bold"
                                 value={auth.senha}
                                 onChange={(e) => setAuth({ ...auth, senha: e.target.value })}
+                                onKeyDown={(e) => { if (e.key === 'Enter') register() }}
                             />
                             <button
                                 className="bg-dblue w-full outline-none focus:outline-none rounded-3xl p-3 text-white"
@@ -110,7 +130,7 @@ export default function RegisterModal({ open, isOpen }) {
                             </button>
                         </>
                 }
-            <ToastContainer />
+                <ToastContainer />
             </div>
         </Modal>
     )
