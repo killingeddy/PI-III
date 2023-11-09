@@ -1,5 +1,6 @@
-import { GiCoral, GiJellyfish, GiOctopus, GiIceberg, GiJugglingSeal, GiSubmarine, GiCirclingFish, GiShipWheel } from 'react-icons/gi';
+import { GiCoral, GiOctopus, GiIceberg, GiJugglingSeal, GiSubmarine, GiCirclingFish, GiShipWheel } from 'react-icons/gi';
 import { Sidebar, Menu, MenuItem } from 'react-pro-sidebar';
+import { HiLogout } from 'react-icons/hi';
 import { useRouter } from 'next/router';
 import React from 'react';
 
@@ -8,6 +9,12 @@ export default function SidebarComponent() {
     const [collapsed, setCollapsed] = React.useState(true);
 
     const route = useRouter();
+
+    const [token, setToken] = React.useState('');
+
+    React.useEffect(() => {
+        setToken(localStorage.getItem('token'));
+    }, []);
 
     return (
         <Sidebar
@@ -103,9 +110,13 @@ export default function SidebarComponent() {
                 <MenuItem onClick={() => window.location.href = '/explore'} active={route.pathname == '/explore'} className='font-title tracking-wide text-dblue' icon={<GiShipWheel size={'30px'} color='#004e89' />}>Explorador</MenuItem>
                 <MenuItem onClick={() => window.location.href = '/gallery'} active={route.pathname == '/gallery'} className='font-title tracking-wide text-dorange' icon={<GiOctopus size={'30px'} color='#ff6b35' />}>Galeria</MenuItem>
                 <MenuItem onClick={() => window.location.href = '/pet'} active={route.pathname == '/pet'} className='font-title tracking-wide text-dblue' icon={<GiJugglingSeal size={'30px'} color='#004e89' />}>Seu bichinho</MenuItem>
-                <MenuItem onClick={() => window.location.href = '/preservation'} active={route.pathname == '/preservation'} className='font-title tracking-wide text-dorange' icon={<GiIceberg size={'30px'} color='#ff6b35' />}>Preservação</MenuItem>
+                <MenuItem onClick={() => window.location.href = '/contact'} active={route.pathname == '/contact'} className='font-title tracking-wide text-dorange' icon={<GiCirclingFish size={'30px'} color='#ff6b35' />}>Contato</MenuItem>
                 <MenuItem onClick={() => window.location.href = '/faq'} active={route.pathname == '/faq'} className='font-title tracking-wide text-dblue' icon={<GiSubmarine size={'30px'} color='#004e89' />}>Perguntas frequentes</MenuItem>
-                <MenuItem onClick={() => window.location.href = '/contact'} active={route.pathname == '/contact'} className='font-title tracking-wide text-dorange' icon={<GiJellyfish size={'30px'} color='#ff6b35' />}>Contato</MenuItem>
+                {
+                    token && (
+                        <MenuItem onClick={() => { localStorage.clear(); setToken('') }} className='font-title tracking-wide text-dorange' icon={<HiLogout size={'30px'} color='#ff6b35' />}>Sair</MenuItem>
+                    )
+                }
             </Menu>
         </Sidebar>
     )
