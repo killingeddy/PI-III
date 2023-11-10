@@ -29,7 +29,7 @@ export default function Home() {
 
   return (
     <FullScreen handle={handle}>
-      <div className="scrollbar-hide relative containe h-screen bg-dblue overflow-hidden">
+      <div className="scrollbar-hide relative containe h-screen bg-dblue overflow-hidden hidden lg:block">
         <AudioPlayer audio={'/underwater.mp3'} autoPlay={isPlaying} loop={true} />
         <div className="container mx-auto h-screen flex relative overflow-hidden" ref={base}>
           <div className="absolute top-1/3 left-24 justify-center text-center">

@@ -1,4 +1,4 @@
-import { GiCoral, GiOctopus, GiIceberg, GiJugglingSeal, GiSubmarine, GiCirclingFish, GiShipWheel } from 'react-icons/gi';
+import { GiCoral, GiOctopus, GiIceberg, GiJugglingSeal, GiSubmarine, GiShipWheel } from 'react-icons/gi';
 import { Sidebar, Menu, MenuItem } from 'react-pro-sidebar';
 import { HiLogout } from 'react-icons/hi';
 import { useRouter } from 'next/router';
@@ -109,7 +109,7 @@ export default function SidebarComponent() {
                 <MenuItem onClick={() => window.location.href = '/'} active={route.pathname == '/'} className='font-title tracking-wide text-dorange' icon={<GiCoral size={'30px'} color='#ff6b35' />}>Ínicio</MenuItem>
                 <MenuItem onClick={() => window.location.href = '/pet'} active={route.pathname == '/pet'} className='font-title tracking-wide text-dblue' icon={<GiJugglingSeal size={'30px'} color='#004e89' />}>Seu bichinho</MenuItem>
                 <MenuItem onClick={() => window.location.href = '/gallery'} active={route.pathname == '/gallery'} className='font-title tracking-wide text-dorange' icon={<GiOctopus size={'30px'} color='#ff6b35' />}>Galeria</MenuItem>
-                <MenuItem onClick={() => window.location.href = '/explore'} active={route.pathname == '/explore'} className='font-title tracking-wide text-dblue' icon={<GiShipWheel size={'30px'} color='#004e89' />}>Explorador</MenuItem>
+                <MenuItem onClick={() => window.location.href = '/preservation'} active={route.pathname == '/preservation'} className='font-title tracking-wide text-dblue' icon={<GiIceberg size={'30px'} color='#004e89' />}>Preservação</MenuItem>
                 <MenuItem onClick={() => window.location.href = '/faq'} active={route.pathname == '/faq'} className='font-title tracking-wide text-dorange' icon={<GiSubmarine size={'30px'} color='#ff6b35' />}>Fale conosco</MenuItem>
                 {
                     token && (

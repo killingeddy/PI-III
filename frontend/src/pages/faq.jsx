@@ -1,16 +1,16 @@
+import { BsMailbox, BsInstagram, BsTelephone } from 'react-icons/bs';
 import SidebarComponent from "@/components/sidebar";
 import FaqItem from "@/components/faqItem";
-import { BsMailbox, BsInstagram, BsTelephone } from 'react-icons/bs';
 
 export default function Faq() {
 
     return (
         <>
+            <div className="scrollbar-hide relative containe h-screen bg-dblue overflow-hidden hidden lg:block">
             <SidebarComponent />
-            <div className="scrollbar-hide relative containe h-screen bg-dblue overflow-hidden">
                 <div className="flex flex-col items-center h-full ml-20 relative overflow-y-auto scrollbar-hide">
                     <h1 className="text-5xl font-title text-white mt-10">Fale Conosco</h1>
-                    <h3 className="text-2xl font-title text-white mt-5">Perguntas Frequentes e confira nossos contatos</h3>
+                    <h3 className="text-xl font-title text-white mt-5">Perguntas Frequentes e confira nossos contatos</h3>
                     <div className="w-11/12 h-1/ p-10 flex flex-col items-center justify-center">
                         <FaqItem description={'A plataforma "Planeta Aqua" é um ambiente educativo e lúdico voltado para crianças e adolescentes, projetado para ensinar sobre a vida marinha e promover a conscientização sobre a importância da preservação dos oceanos e de suas criaturas.'} name={'O que é a plataforma "Planeta Aqua"?'} />
                         <FaqItem description={'A plataforma destina-se a crianças e adolescentes interessados em aprender sobre a vida marinha, com faixas etárias recomendadas entre 6 e 16 anos.'} name={'Quem é o público-alvo da plataforma?'} />
@@ -22,15 +22,15 @@ export default function Faq() {
                         <FaqItem description={'Você pode contribuir compartilhando seu conhecimento, fornecendo feedback, divulgando a plataforma, participando das atividades e até mesmo se envolvendo em ações voluntárias relacionadas à conservação marinha.'} name={'Como posso contribuir para a plataforma "Planeta Aqua"?'} />
                         <FaqItem description={'A plataforma "Planeta Aqua" ainda não está disponível para dispositivos móveis devido à sua complexidade e ao peso dos recursos, mas estamos trabalhando para torná-la acessível em plataformas móveis no futuro.'} name={'A plataforma "Planeta Aqua" está disponível para dispositivos móveis?'} />
                         <h1 className="text-5xl font-title text-white mt-10 text-center">Contato</h1>
-                        <h3 className="text-2xl font-title text-white mt-5 text-center">Entre em contato conosco para mais informações</h3>
+                        <h3 className="text-xl font-title text-white mt-5 text-center">Entre em contato conosco para mais informações</h3>
                         <div className="flex flex-row justify-around mt-5 w-1/6 items-center">
-                            <a className="text-2xl font-title text-white text-center" href="mailto:eddiemedradorocha@gmail.com">
+                            <a className="text-xl font-title text-white text-center" href="mailto:eddiemedradorocha@gmail.com">
                                 <BsMailbox size={40} />
                             </a>
-                            <a className="text-2xl font-title text-white text-center" href="https://www.instagram.com/killingeddy/">
+                            <a className="text-xl font-title text-white text-center" href="https://www.instagram.com/killingeddy/">
                                 <BsInstagram size={30} />
                             </a>
-                            <a className="text-2xl font-title text-white text-center" href="https://wa.me/16993887144">
+                            <a className="text-xl font-title text-white text-center" href="https://wa.me/16993887144">
                                 <BsTelephone size={30} />
                             </a>
                         </div>

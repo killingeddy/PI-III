@@ -119,7 +119,7 @@ export default function Pet() {
 
     return (
         <>
-            <div className="scrollbar-hide relative container h-screen bg-dblue overflow-hidden hidden 2xl:block">
+            <div className="scrollbar-hide relative container h-screen bg-dblue overflow-hidden hidden lg:block">
                 <LoginModal open={loginModal} isOpen={setLoginModal} />
                 <SidebarComponent />
                 <div className="flex flex-col h-full ml-20 relative overflow-hidden scrollbar-hide items-center justify-center">

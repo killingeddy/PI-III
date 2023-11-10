@@ -40,8 +40,8 @@ export default function Gallery() {
 
     return (
         <>
-            <SidebarComponent />
-            <div className="scrollbar-hide relative containe h-screen bg-dblue overflow-hidden">
+            <div className="scrollbar-hide relative containe h-screen bg-dblue overflow-hidden hidden lg:block">
+                <SidebarComponent />
                 <div className="flex flex-col h-full ml-20 relative overflow-hidden scrollbar-hide items-center justify-center">
                     <Carousel slides={especies} />
                 </div>

@@ -78,7 +78,7 @@ export default function Carousel({ slides, object }) {
                         {slides?.map((s, i) => {
                             return (
                                 <div key={i} className="min-w-full flex flex-row relative bg-neutral">
-                                    <div className="p-6 w-[60%] hidden xl:block bg-neutral rounded-3xl overflow-hidden z-50">
+                                    <div className="p-6 w-[60%] hidden lg:block bg-neutral rounded-3xl overflow-hidden z-50">
                                         <Object color={'0x7e8283'} model={'spermwhale'} objPosition={'60, 20, 1'} timeScale={1} />
                                     </div>
                                     <div className="p-2 h-auto w-[40%] flex flex-col right-0 bg-dorange rounded-3xl">
