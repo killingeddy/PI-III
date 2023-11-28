@@ -37,7 +37,7 @@ export default function Home() {
             <h1 className="text-3xl text-neutral font-body-bold uppercase m-0">Desvendando o oceano</h1>
             <button onClick={() => handleClick(first)} className="bg-dorange text-white font-body-bold uppercase text-xl px-8 py-2 rounded-full mt-8 cursor-pointer z-50">Explorar</button>
           </div>
-          <Link href="/explore">
+          <Link href="/gallery">
             <button className="absolute bottom-5 left-5 font-title text-dorange text-xl cursor-pointer z-50">Pular intro</button>
           </Link>
           <div className="absolute left-1/3 bottom-0">
@@ -73,7 +73,7 @@ export default function Home() {
             </div>
             <p className="text-lorange text-justify text-1xl w-2/4 mt-5 font-body">Os oceanos, cobrindo mais de 70% da superfície da Terra, não são apenas vastas extensões de água; são os pilares da vida em nosso planeta. Eles desempenham um papel crucial em nossa sobrevivência, desde estabilização do clima, produção de oxigênio até a nossa alimentação. E mesmo assim menos de 20% dos oceanos foram mapeados e explorados! Grande parte do nosso próprio planeta permanece inexplorada e cheia de segredos. Nas profundezas escuras, encontramos criaturas surpreendentes e ecossistemas únicos que ainda estamos aprendendo a entender.</p>
             <p className="text-lorange text-justify text-1xl w-2/4 mt-5 font-body">O Planeta Aqua tem a missão de compartilhar o maravilhoso mundo dos oceanos com o público e promover a conscientização sobre a importância da conservação. Queremos inspirar a ação, para que juntos possamos proteger nossos preciosos oceanos. Junte-se a nós nesta jornada emocionante! Explore, aprenda e descubra o mundo azul que sustenta a vida na Terra. Vamos fazer a diferença para um oceano mais saudável e um planeta mais feliz! </p>
-            <Link href="/explore">
+            <Link href="/gallery">
               <button className="bg-dorange text-white font-body-bold uppercase text-xl px-8 py-2 rounded-full mt-8 cursor-pointer z-50">Clique aqui para explorar</button>
             </Link>
           </div>
