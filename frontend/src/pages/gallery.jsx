@@ -147,7 +147,7 @@ export default function Gallery() {
                                             }
                                             {
                                                 especie === "Cnidários" &&
-                                                <Object color={'0xFFFFFF'} objPosition={'-10, 0, 4'} model={'jellyfishGl'} />
+                                                <Object color={'0xFFFFFF'} objPosition={'-10, 0, 4'} model={'jellyfishGL'} />
                                             }
                                             {
                                                 especie === "Crustáceos" &&
